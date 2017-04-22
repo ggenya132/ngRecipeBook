@@ -20,5 +20,6 @@ onSignUp(form : NgForm){
   console.log(email);
   console.log(password);
   this.authService.signUpUser(email, password);
+  form.resetForm();
 }
 }

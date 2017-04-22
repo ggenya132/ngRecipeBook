@@ -10,8 +10,14 @@
         <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.getValidationStatus()">
+        <li><a routerLink="/signin">Sign In </a></li>
         <li><a routerLink="/signup">Register</a></li>
-        <li class="dropdown" appDropdown>
+        </ng-template>
+        <li><a style="cursor: pointer;" (click)="onLogout()"
+        *ngIf="authService.getValidationStatus()">Logout</a></li>
+        <li class="dropdown" appDropdown
+         *ngIf="authService.getValidationStatus()">
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>

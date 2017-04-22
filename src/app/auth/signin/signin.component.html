@@ -4,11 +4,12 @@
 
     <form (ngSubmit)="onSignUp(form)" #form="ngForm">
   <div class="form-group">
-    <label for="email">Mail</label>
+    <label for="email">Email</label>
     <input type="email"
     id="email"
     name="email"
     class="form-control"
+    email
     ngModel>
   </div>
 
@@ -21,7 +22,7 @@
   ngModel>
 </div>
 
-<button class="btn btn-primary" type="submit">Sign Up</button>
+<button class="btn btn-primary" type="submit" [disabled]="!form.valid && form.touched">Sign Up</button>
 </form>
   </div>
 </div>
